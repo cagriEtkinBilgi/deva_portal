@@ -54,6 +54,12 @@ class CalendarViewModel extends BaseViewModel {
     setState(ApiStateEnum.LoadedState);
   }
 
+  int getEventCountByDate(DateTime _selectedDay){
+    var testDate=DateTime(_selectedDay.year,_selectedDay.month,_selectedDay.day);
+    selectedEvents= events?[testDate] ?? [];
+    return selectedEvents!.length;
+  }
+
   Map<String,dynamic>? getCurrentDates(){
     try{
       var date=DateTime.now();

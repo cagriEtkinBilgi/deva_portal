@@ -88,7 +88,7 @@ class _CalendarMainPageState extends State<CalendarMainPage> with TickerProvider
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         _buildTableCalendarWithBuilders(model),
-        SizedBox(
+        const SizedBox(
           height: 5,
         ),
         Expanded(flex: 1, child: _buildEventList(model)),
@@ -133,10 +133,10 @@ class _CalendarMainPageState extends State<CalendarMainPage> with TickerProvider
           weekendStyle: const TextStyle().copyWith(color: Colors.blue[600]),
         ),
         onPageChanged: (date){
-          print(date);
-          //var last=date.add(Duration(days: 31));
-          //model.getCalenderTasks(DateParseTools.instance!.DateToStr(date),
-          //    DateParseTools.instance!.DateToStr(last));
+          _foucusedDay=date;
+          var last=date.add(Duration(days: 31));
+          model.getCalenderTasks(DateParseTools.instance!.DateToStr(date),
+              DateParseTools.instance!.DateToStr(last));
         },
         calendarBuilders: CalendarBuilders(
           selectedBuilder: (context, date, _) {
@@ -166,11 +166,12 @@ class _CalendarMainPageState extends State<CalendarMainPage> with TickerProvider
             );
           },
           markerBuilder: (context, date,events) {
-            if (events.isNotEmpty) {
+            var evenCount=model.getEventCountByDate(date);
+            if (evenCount!=0) {
               return Positioned(
-                right: -2,
-                top: -2,
-                child: _buildEventsMarker(date,events),
+                right: 2,
+                top: 2,
+                child: _buildEventsMarker(date,evenCount.toString()),
               );
             }else{
               return Container();
@@ -181,17 +182,18 @@ class _CalendarMainPageState extends State<CalendarMainPage> with TickerProvider
     }
   }
 
-  Widget _buildEventsMarker(DateTime date, List events) {
+  Widget _buildEventsMarker(DateTime date, String eventCount) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       decoration: const BoxDecoration(
         shape: BoxShape.rectangle,
+        color: Colors.blue
       ),
       width: 16.0,
       height: 16.0,
       child: Center(
         child: Text(
-          '${events.length}',
+          '${eventCount}',
           style: TextStyle().copyWith(
             color: Colors.white,
             fontSize: 12.0,
