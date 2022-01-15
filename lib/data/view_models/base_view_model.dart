@@ -46,7 +46,6 @@ class BaseViewModel extends ChangeNotifier {
   }
   void setState(ApiStateEnum? state){
     _apiState=state;
-    print(_apiState);
     notifyListeners();
   }
 
