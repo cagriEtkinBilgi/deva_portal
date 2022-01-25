@@ -156,13 +156,14 @@ class _AttachmentAddDialogState<T extends BaseViewModel> extends State<Attachmen
 
   Future imagePicker(ImageSource source) async {
     var resuld=await picker.pickImage(source:source );
-    if(resuld!=null){
+    if(resuld!=null&&resuld.path!=null){
       setState(() {
         model.file = File(resuld.path);
         model.filePath=resuld.path;
         model.name=resuld.path.split('/').last;
       });
     }
+    return;
   }
 
   Future pickFile() async {

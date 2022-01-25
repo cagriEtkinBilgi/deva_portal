@@ -104,12 +104,11 @@ class NewContactForm extends StatelessWidget {
                     height: 5,
                   ),
                   TextFormField(
-                    validator: (val)=>FormValidations.NonEmty(val??""),
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (val){
                       form!.email=val;
                     },
-                    initialValue:form!.email,
+                    initialValue:form?.email??"",
                     decoration: const InputDecoration(
                       labelText: "Email",
                       hintText: "Email",
