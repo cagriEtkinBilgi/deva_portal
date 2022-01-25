@@ -3,6 +3,8 @@ import 'package:deva_portal/data/view_models/security_view_model.dart';
 import 'package:deva_portal/enums/api_state.dart';
 import 'package:deva_portal/models/activity_models/activity_form_model.dart';
 import 'package:deva_portal/models/base_models/base_list_model.dart';
+import 'package:deva_portal/models/component_models/check_list_model.dart';
+import 'package:deva_portal/models/component_models/dropdown_search_model.dart';
 import 'package:deva_portal/models/component_models/select_list_widget_model.dart';
 import 'package:deva_portal/tools/locator.dart';
 import '../error_model.dart';
@@ -32,6 +34,18 @@ class ActivityCreateViewModel extends BaseViewModel{
       }
       setState(ApiStateEnum.ErorState);
       throw e;
+    }
+
+  }
+
+  Future <List<CheckListModel>> getInvadedUser(int id) async {
+    try{
+      var sesion=await SecurityViewModel().getCurrentSesion();
+      BaseListModel<DropdownSearchModel> retVal= await repo.getInvadedUser(sesion.token!, id);
+      var models =retVal.datas.map((e) => e.toCheckListModel()).toList();
+      return models;
+    }catch(e){
+      throw ErrorModel(message: e.toString());
     }
 
   }

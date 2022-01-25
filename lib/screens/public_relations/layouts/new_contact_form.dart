@@ -40,9 +40,9 @@ class NewContactForm extends StatelessWidget {
               child: Column(
                 children: [
                   MemberRadioButton(
-                    value: 0,
+                    value: 1,
                     onClick: (val){
-                      form!.userStatus=val??"";
+                      form!.userStatus=val??1;
                     },
                   ),
                   TextFormField(

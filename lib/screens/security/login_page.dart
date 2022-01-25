@@ -119,7 +119,7 @@ class LoginPage extends StatelessWidget {
                                 });
                               }catch(e){
                                 print(e);
-                                CustomDialog.instance!.exceptionMessage(context,model: _viewModel!.errorModel!);
+                                CustomDialog.instance!.InformDialog(context,"Başlık",e.toString());
                               }
                             }
                           },

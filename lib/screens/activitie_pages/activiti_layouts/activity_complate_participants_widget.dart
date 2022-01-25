@@ -38,7 +38,7 @@ class _ActivityComplateParticipantsWidgetState extends State<ActivityComplatePar
         return SelectedListWidget(
           items: selectList??[],
           extraButton: IconButton(
-            icon:Icon(Icons.add_box_outlined),
+            icon:const Icon(Icons.add_box_outlined),
             onPressed: () async {
               await addInvadedUser(context);
               setState(() {
@@ -61,7 +61,7 @@ class _ActivityComplateParticipantsWidgetState extends State<ActivityComplatePar
         context: context,
         builder: (context){
           return AlertDialog(
-            title: Text("Kişi Ekle"),
+            title: const Text("Kişi Ekle"),
             content: FutureBuilder<List<CheckListModel>>(
                 future: widget.futureInvadedUser,
                 builder: (context,dataModel){

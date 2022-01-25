@@ -21,8 +21,8 @@ class BaseApi{
   Dio? _dio;
   BaseApi._init(){
     final baseOptions=BaseOptions(
-      baseUrl:AppTools.apiUri+"/api/api",//canlı apiye bağlanıldığındaaçılacak!
-      //baseUrl:AppTools.apiUri+"/api",
+      //baseUrl:AppTools.apiUri+"/api/api",//canlı apiye bağlanıldığındaaçılacak!
+      baseUrl:AppTools.apiUri+"/api",
     );
     _dio=Dio(baseOptions);
   }

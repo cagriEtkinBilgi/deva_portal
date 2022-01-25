@@ -128,7 +128,7 @@ class ActivityCompleteForm extends StatelessWidget {
                    futureParticipant:model.getParticipantsUser(id??0),
                    onSaveInvadedAsyc:(List<CheckListModel>? checks) async {
                      try{
-                       var retval=await await model.addUserToActivity(checks!, id!);
+                       var retval=await model.addUserToActivity(checks!, id!);
                        model.setState(ApiStateEnum.LoadedState);
                        return retval;
                      }catch(e){
