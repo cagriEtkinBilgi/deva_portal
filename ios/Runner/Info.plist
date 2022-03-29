@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>$(FLUTTER_BUILD_NAME)</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -36,11 +36,11 @@
 	<key>NSCameraUsageDescription</key>
 	<string>To capture profile photo please grant camera access</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Uygumanın konum bilginizi doğrulaması gerekmektedir</string>
+	<string>Uygumanın konum bilginizi doğrulaması gerekmektedir </string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Uygumanın konum bilginizi doğrulaması gerekmektedir</string>
+	<string>Her zaman konum doğrulaması gerekmekte</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Uygumanın konum bilginizi doğrulaması gerekmektedir</string>
+	<string>Uygulama kullanımdayken konumuzu doğrulamalı</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow the app to record using your phone's microphone</string>
 	<key>NSPhotoLibraryUsageDescription</key>

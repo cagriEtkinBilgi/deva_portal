@@ -68,28 +68,32 @@ class PublicRelationScorbordPage extends StatelessWidget {
     screanWith=MediaQuery.of(context).size.width;
     return SingleChildScrollView(
 
-      child: DataTable(
-        columnSpacing: (screanWith/5)-55,
-        columns: const [
-            DataColumn(
-              label: Text("#"),
-            ),
-            DataColumn(
-              label: Text("Adı Soyadı"),
-            ),
-            DataColumn(
-              label: Text("İlçe"),
-            ),
-            DataColumn(
-              label: Text("Üye"),
-              numeric:true,
-            ),
-            DataColumn(
-              label: Text("Gönüllü"),
-              numeric:true,
-            ),
-          ],
-          rows: getTableRows(scores),
+      child: Center(
+        child: FittedBox(
+          child: DataTable(
+            columnSpacing: (screanWith/5)-55,
+            columns: const [
+                DataColumn(
+                  label: Text("#"),
+                ),
+                DataColumn(
+                  label: Text("Adı Soyadı"),
+                ),
+                DataColumn(
+                  label: Text("İlçe"),
+                ),
+                DataColumn(
+                  label: Text("Üye"),
+                  numeric:true,
+                ),
+                DataColumn(
+                  label: Text("Gönüllü"),
+                  numeric:true,
+                ),
+              ],
+              rows: getTableRows(scores),
+          ),
+        ),
       ),
     );
   }

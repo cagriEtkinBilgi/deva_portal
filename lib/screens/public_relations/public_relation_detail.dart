@@ -39,22 +39,24 @@ class PublicRelationDateil extends StatelessWidget {
 
   Widget _detailCard(List<PublicRelationScoreDetail> scores){
     return SingleChildScrollView(
-      child: FittedBox(
-        child: DataTable(
-          columnSpacing: (screanWith/3)-60,
-          columns: const [
-            DataColumn(
-              label: Text("Adı Soyadı"),
-            ),
-            DataColumn(
-              label: Text("Eklenme Tarih"),
-            ),
-            DataColumn(
-              label: Text("Durumu"),
-              numeric:true,
-            ),
-          ],
-          rows: getTableRows(scores),
+      child: Center(
+        child: FittedBox(
+          child: DataTable(
+            columnSpacing: (screanWith/3)-60,
+            columns: const [
+              DataColumn(
+                label: Text("Adı Soyadı"),
+              ),
+              DataColumn(
+                label: Text("Eklenme Tarih"),
+              ),
+              DataColumn(
+                label: Text("Durumu"),
+                numeric:true,
+              ),
+            ],
+            rows: getTableRows(scores),
+          ),
         ),
       ),
     );

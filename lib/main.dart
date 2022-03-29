@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: UowProviders.getProviders(context),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Deva',
         theme: DevaThema,
         //home: LoginPage(),
