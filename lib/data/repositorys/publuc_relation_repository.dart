@@ -5,6 +5,7 @@ import 'package:deva_portal/models/public_relation_models/contact_create_result_
 import 'package:deva_portal/models/public_relation_models/contact_phone_confirme_model.dart';
 import 'package:deva_portal/models/public_relation_models/new_contact_form_model.dart';
 import 'package:deva_portal/models/public_relation_models/public_relation_score_bord.dart';
+import 'package:deva_portal/models/public_relation_models/public_relation_score_detail.dart';
 import 'package:deva_portal/models/public_relation_models/public_relation_user_check_model.dart';
 import 'package:deva_portal/models/public_relation_models/public_relation_user_create_model.dart';
 import 'package:dio/dio.dart';
@@ -215,12 +216,27 @@ class PublicRelationRepository{
     }
   }
 
-  Future<PublicRelationScoreBord> getScoreBord(String token) async {
+  Future<PublicRelationScoreBord> getScoreBord(String token,int ID) async {
     try {
       //mahalleleri getiren api yazılacak
       PublicRelationScoreBord response =
       await BaseApi.instance!.dioGet<PublicRelationScoreBord>(
-          "/PublicRelations/GetScorebord", PublicRelationScoreBord(),
+          "/PublicRelations/GetScorebord/${ID}", PublicRelationScoreBord(),
+          token: token);
+
+      print(response);
+      return response;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  Future<BaseListModel<PublicRelationScoreDetail>> getScoreBordDetail(String token) async {
+    try {
+      //mahalleleri getiren api yazılacak
+      BaseListModel<PublicRelationScoreDetail> response =
+      await BaseApi.instance!.dioGet<PublicRelationScoreDetail>(
+          "/PublicRelations/GetVolunteerForms", PublicRelationScoreDetail(),
           token: token);
       //print(response.datas);
       print(response);

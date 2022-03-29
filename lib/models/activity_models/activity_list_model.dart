@@ -11,6 +11,7 @@ class ActivityListModel extends BaseModel {
   String? summary;
   String? activtyCategory;
   String? plannedStartDate;
+  String? plannedStartTime;
   String? plannedEndDate;
   int? workGroupID;
   int? activityStatus;
@@ -24,6 +25,7 @@ class ActivityListModel extends BaseModel {
       this.desc,
       this.summary,
       this.plannedStartDate,
+      this.plannedStartTime,
       this.plannedEndDate,
       this.workGroupID,
       this.workGroup,
@@ -45,6 +47,7 @@ class ActivityListModel extends BaseModel {
     id: map["id"],
     name: map["name"],
     desc: map["desc"],
+    plannedStartTime: map["plannedStartTime"],
     activityStatus:map["activityStatus"],
     workGroup: map["workGroup"],
     workGroupID:map["workGroupID"],
@@ -65,6 +68,7 @@ class ActivityListModel extends BaseModel {
     "activtyCategoryName":activtyCategory,
     "plannedEndDate":plannedEndDate,
     "plannedStartDate":plannedStartDate,
+    "plannedStartTime":plannedStartTime,
     "authorizationStatus":authorizationStatus,
     "workGroup":workGroup,
     "activityStatus":activityStatus

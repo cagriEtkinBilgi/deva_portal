@@ -20,6 +20,13 @@ class MemberRadioButton extends StatefulWidget {
 }
 
 class _MemberRadioButtonState extends State<MemberRadioButton> {
+
+  @override
+  void initState() {
+    widget.onClick!(1);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(

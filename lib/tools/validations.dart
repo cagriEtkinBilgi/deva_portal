@@ -49,6 +49,15 @@ class FormValidations{
       return"Boş Olamaz";
     }
   }
+  static MemberIdentitty(String val,{int type=1}){
+    if(type==1){
+      if(val.length<=0){
+        return"Boş Olamaz";
+      }
+    }
+
+
+  }
   static PhoneValidation(String val){
     if(val.length<10){
       return"Lütfen Geçerli Bir Telefon Girin";

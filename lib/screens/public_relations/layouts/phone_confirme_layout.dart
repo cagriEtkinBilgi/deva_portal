@@ -22,6 +22,9 @@ class PhoneConfirmeLayout extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
+                  TimerButtonComponent(
+                    onPressed: onReSend!,
+                  ),
                   Row(
 
                     children: const [
@@ -45,12 +48,7 @@ class PhoneConfirmeLayout extends StatelessWidget {
                       hintText: "Doğrulama Kodu",
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  TimerButtonComponent(
-                    onPressed: onReSend!,
-                  ),
+
                 ],
               ),
             ),

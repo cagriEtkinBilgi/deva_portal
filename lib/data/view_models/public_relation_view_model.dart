@@ -13,12 +13,12 @@ import 'base_view_model.dart';
 
 class PublicRelationViewModel extends BaseViewModel{
 
-  late PublicRelationUserCheckModel checkedModel;
-  late PublicRelationUserCreateModel createModel;
+  var checkedModel=PublicRelationUserCheckModel();
+  var createModel=PublicRelationUserCreateModel();
   String phoneNumber="";
   bool showUserCard=false;
   bool showResult=false;
-  late PublicRelationScoreBord scoreBord;
+  var scoreBord=PublicRelationScoreBord();
 
   var repo=locator<PublicRelationRepository>();
 
@@ -103,11 +103,11 @@ class PublicRelationViewModel extends BaseViewModel{
       throw ErrorModel(message: e.toString());
     }
   }
-  Future<bool>getScoreBord() async{
+  Future<bool>getScoreBord({int filterID=-1}) async{
     try{
       setState(ApiStateEnum.LodingState);
       var sesion=await SecurityViewModel().getCurrentSesion();
-      scoreBord=await repo.getScoreBord(sesion.token!);
+      scoreBord=await repo.getScoreBord(sesion.token!,filterID);
       setState(ApiStateEnum.LoadedState);
       return true;
 

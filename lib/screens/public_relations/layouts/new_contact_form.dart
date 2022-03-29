@@ -2,12 +2,12 @@ import 'package:deva_portal/components/address_components/adress_district_dropdo
 import 'package:deva_portal/components/date_components/text_field_date_picker_widget.dart';
 import 'package:deva_portal/components/dropdown_serach_widget.dart';
 import 'package:deva_portal/components/radiobutons/gender_radio_button.dart';
+import 'package:deva_portal/components/radiobutons/identify_radio_button.dart';
 import 'package:deva_portal/components/radiobutons/member_radio_buttons.dart';
 import 'package:deva_portal/models/component_models/dropdown_search_model.dart';
 import 'package:deva_portal/models/public_relation_models/new_contact_form_model.dart';
 import 'package:deva_portal/tools/apptool.dart';
 import 'package:deva_portal/tools/validations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -39,10 +39,12 @@ class NewContactForm extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  MemberRadioButton(
-                    value: 1,
+                  IdentifyRadioButton(
+                    value: 1  ,
                     onClick: (val){
-                      form!.userStatus=val??1;
+                      form!.userStatus=val["id"]??1;
+                      form!.identityNumber=val["identify"]??"";
+                      print(val);
                     },
                   ),
                   TextFormField(
@@ -73,21 +75,7 @@ class NewContactForm extends StatelessWidget {
                   const SizedBox(
                     height: 5,
                   ),
-                  TextFormField(
-                    validator: (val)=>FormValidations.identityNumberValidation(val??""),
-                    keyboardType: TextInputType.number,
-                    onChanged: (val){
-                      form!.identityNumber=val;
-                    },
-                    initialValue:form!.identityNumber,
-                    decoration: const InputDecoration(
-                      labelText: "TC Kimlik No",
-                      hintText: "TC Kimlik No",
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+
                   TextFormField(
                     keyboardType: TextInputType.number,
                     inputFormatters: [phoneMask],
@@ -140,6 +128,15 @@ class NewContactForm extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 5,),
+                  AddressDistrictDropdownComponent(
+                    districtes: districtes,
+                    getNeighborhood: getNeighborhood,
+                    onChange: (val){
+                      form!.districtID=val.districtId;
+                      form!.neighborhoodID=val.neighborhoodId;
+                    },
+                  ),
+                  const SizedBox(height: 5,),
                   DropdownSerachWidget(
                     items: jops??[],
                     dropdownLabel: "Meslek",
@@ -157,15 +154,8 @@ class NewContactForm extends StatelessWidget {
                       form!.educationState=val.id;
                     },
                   ),
-                  const SizedBox(height: 5,),
-                  AddressDistrictDropdownComponent(
-                    districtes: districtes,
-                    getNeighborhood: getNeighborhood,
-                    onChange: (val){
-                      form!.districtID=val.districtId;
-                      form!.neighborhoodID=val.neighborhoodId;
-                    },
-                  ),
+
+
                 ],
               ),
             ),

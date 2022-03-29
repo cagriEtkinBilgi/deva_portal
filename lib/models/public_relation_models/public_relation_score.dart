@@ -11,6 +11,7 @@ class PublicRelationScore extends BaseModel {
   int? id;
   String? name;
   String? surname;
+  String? distinc;
   int? volunteerCount;
   int? memberCount;
 
@@ -22,10 +23,9 @@ class PublicRelationScore extends BaseModel {
     this.outarized,
     this.resultDate,
     this.volunteerCount,
+    this.distinc,
   });
 
-  @override
-  fromJson(String str) => fromMap(json.decode(str));
 
   @override
   fromMap(Map<dynamic, dynamic> map) =>PublicRelationScore(
@@ -36,10 +36,9 @@ class PublicRelationScore extends BaseModel {
     volunteerCount: map["volunteerCount"],
     outarized: map["outarized"],
     resultDate: map["resultDate"],
+    distinc: map["distinc"],
   );
 
-  @override
-  String toJson() => json.encode(toMap());
 
   @override
   Map<String, dynamic> toMap() => {
@@ -49,7 +48,7 @@ class PublicRelationScore extends BaseModel {
     "name":name,
     "surname":surname,
     "resultDate":resultDate,
-    "outarized":outarized,
+    "distinc":distinc,
   };
   
 }

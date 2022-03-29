@@ -219,10 +219,14 @@ class _CalendarMainPageState extends State<CalendarMainPage> with TickerProvider
             ),
             child: ListTile(
               leading: Container(
-                child: Text(event.timeText??"",
-                  style: const TextStyle(
-                    fontSize: 11,
-                  ),
+                child: Column(
+                  children: [
+                    Text(event.timeText??"",
+                      style: const TextStyle(
+                        fontSize: 11,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               title: Text(event.title??""),

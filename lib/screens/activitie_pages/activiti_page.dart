@@ -48,7 +48,6 @@ class ActivitiePage extends StatelessWidget {
                     showSearch(
                       context: context,
                       delegate: DataSearch(pageID:2 ),
-
                     );
                   }
 
@@ -139,46 +138,53 @@ class ActivitiePage extends StatelessWidget {
                       child: Row(
                         children: [
                           Expanded(
+                            flex:2,
+                            child: _buildCardLeading(listItem)),
+                          
+                          Expanded(
+                            flex: 9,
                             child: Column(
                               children: [
-                                Container(
-                                  child: ListTile(
-                                    onTap: (){
-                                      Navigator.pushNamed<dynamic>(context,'/ActivitiesDetailPage',arguments: {"id":listItem.id,"title":listItem.name});
-                                    },
-                                    title: Text(listItem.name??""),
-                                    subtitle: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        buildListText(listItem.desc??""),
-                                        const SizedBox(height: 8,),
-                                        Row(
-                                          mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Expanded(
+                                ListTile(
+                                  onTap: (){
+                                    Navigator.pushNamed<dynamic>(context,'/ActivitiesDetailPage',arguments: {"id":listItem.id,"title":listItem.name});
+                                  },
+                                  title: Text(listItem.name??""),
+                                  subtitle: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      buildListText(listItem.desc??""),
+                                      const SizedBox(height: 8,),
+                                      Row(
+                                        mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
 
-                                              child:Text(listItem.workGroup??"",style: TextStyle(
-                                                  fontSize: 16,
-                                                  color: Theme.of(context).accentColor
-                                              ),),
-                                            ),
-                                            SizedBox(
-                                              width: 100,
-                                              child: buildStatus(context,listItem.activityStatus!),
-                                            )
+                                            child:Text(listItem.workGroup??"",style: TextStyle(
+                                                fontSize: 16,
+                                                color: Theme.of(context).accentColor
+                                            ),),
+                                          ),
+                                          SizedBox(
+                                            width: 100,
+                                            child: buildStatus(context,listItem.activityStatus!),
+                                          )
 
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    leading: _buildCardLeading(listItem),
+                                        ],
+                                      )
+                                    ],
                                   ),
+                                  //leading: _buildCardLeading(listItem),
                                 ),
                               ],
                             ),
                           ),
-                          Center(
-                            child: Icon(Icons.arrow_forward_ios_outlined,color: Theme.of(context).primaryColor,),
+                          
+                          Expanded(
+                            flex: 1,
+                            child: Center(
+                              child: Icon(Icons.arrow_forward_ios_outlined,color: Theme.of(context).primaryColor,),
+                            ),
                           )
                         ],
                       ),
@@ -229,8 +235,9 @@ class ActivitiePage extends StatelessWidget {
     return Column(
       children: [
           Text(dayStr[0],style: const TextStyle(fontWeight: FontWeight.bold ,fontSize: 20),),
-          Text(dateStrs[1],style:const TextStyle(fontSize: 12),),
-          Text(dateStrs[0],style:const TextStyle(fontSize: 12),),
+          Text(dateStrs[1],style:const TextStyle(fontSize: 16),),
+          Text(dateStrs[0],style:const TextStyle(fontSize: 16),),
+          Text("${model.plannedStartTime}",style:const TextStyle(fontSize: 13))
       ],
     );
   }
@@ -254,7 +261,6 @@ class ActivitiePage extends StatelessWidget {
             });
           },
         ),
-
         SlidableAction(
           label: 'Mazeret Ekle',
           backgroundColor: Colors.blue,

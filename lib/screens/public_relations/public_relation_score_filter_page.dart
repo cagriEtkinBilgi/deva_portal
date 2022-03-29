@@ -1,21 +1,20 @@
-import 'package:deva_portal/components/date_components/custom_date_filter_widget.dart';
+import 'package:deva_portal/components/date_components/custom_past_date_filter_widget.dart';
 import 'package:flutter/material.dart';
 
-class ActivityFilterPage extends StatelessWidget {
-  int? selectedID;
-
-   ActivityFilterPage({Key? key,dynamic args}) : super(key: key){
+class PublicRelationScoreFilterPage extends StatelessWidget {
+  int selectedID=-1;
+  PublicRelationScoreFilterPage({Key? key,dynamic args}) : super(key: key){
     if(args!["selectedID"]!=null)
       selectedID=args["selectedID"];
-   }
+  }
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-        appBar: AppBar(
-          title: const Text("Aksiyon Filitreleri"),
-        ),
-        body: Column(
+      appBar: AppBar(
+        title: const Text("Skor Filitreleri"),
+      ),
+      body: Column(
           children: [
             Expanded(
               flex: 9,
@@ -25,17 +24,18 @@ class ActivityFilterPage extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: _buildButton(),
             )*/
-       ]
-        ),
+          ]
+      ),
     );
   }
 
   Widget _buildList(BuildContext context) {
-    return CustomDateWidget(
-      selectedID: selectedID??1,
+    return CustomPastDateFilterWidget(
+      selectedID: selectedID,
       onChangeIndex: (int index){
         Navigator.pop(context,index);
       },
     );
   }
 }
+

@@ -15,6 +15,7 @@ import 'package:deva_portal/data/view_models/conatct_view_model.dart';
 import 'package:deva_portal/data/view_models/dashboard_view_model.dart';
 import 'package:deva_portal/data/view_models/note_view_model.dart';
 import 'package:deva_portal/data/view_models/profile_view_model.dart';
+import 'package:deva_portal/data/view_models/public_relation_detail_view_model.dart';
 import 'package:deva_portal/data/view_models/public_relation_view_model.dart';
 import 'package:deva_portal/data/view_models/search_view_model.dart';
 import 'package:deva_portal/data/view_models/security_view_model.dart';
@@ -56,5 +57,6 @@ void setupLocator(){
   locator.registerLazySingleton(() => PublicRelationRepository());
   locator.registerLazySingleton(() => ContactViewModel());
   locator.registerFactory(() => PublicRelationViewModel());
+  locator.registerFactory(() => PublicRelationDetailViewModel());
 
 }

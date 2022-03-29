@@ -1,7 +1,7 @@
+import 'package:deva_portal/tools/deva_thema.dart';
 import 'package:deva_portal/tools/locator.dart';
 import 'package:deva_portal/tools/route_generator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'data/uow_providers.dart';
 
@@ -20,20 +20,7 @@ class MyApp extends StatelessWidget {
       providers: UowProviders.getProviders(context),
       child: MaterialApp(
         title: 'Deva',
-        localizationsDelegates: const [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('tr', 'TR'),
-          Locale('en', 'US'),
-        ],
-        locale: Locale('tr'),
-        theme: ThemeData(
-          primaryColor: Colors.lightBlue.shade800,
-          accentColor: Colors.grey.shade600,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
+        theme: DevaThema,
         //home: LoginPage(),
         onGenerateRoute: RouteGenerator.routeGenerator,
       ),

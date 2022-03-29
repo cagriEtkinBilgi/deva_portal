@@ -10,7 +10,9 @@ import 'package:deva_portal/screens/homepages/home_page.dart';
 import 'package:deva_portal/screens/notes_pages/activitie_notes_page.dart';
 import 'package:deva_portal/screens/notes_pages/task_notes_page.dart';
 import 'package:deva_portal/screens/public_relations/add_new_contact.dart';
+import 'package:deva_portal/screens/public_relations/public_relation_detail.dart';
 import 'package:deva_portal/screens/public_relations/public_relation_scorbord_page.dart';
+import 'package:deva_portal/screens/public_relations/public_relation_score_filter_page.dart';
 import 'package:deva_portal/screens/security/login_page.dart';
 import 'package:deva_portal/screens/security/profile_pages.dart';
 import 'package:deva_portal/screens/security/splash_screen.dart';
@@ -114,6 +116,13 @@ class RouteGenerator{
         case '/PublicRelationScorbord':
           return MaterialPageRoute(builder: (_)=>PublicRelationScorbordPage());
           break;
+        case '/PublicRelationScorbordDetail':
+          return MaterialPageRoute(builder: (_)=>PublicRelationDateil());
+          break;
+        case '/PublicRelationScoreFilter':
+          final args=settings.arguments;
+          return MaterialPageRoute(builder: (_)=>PublicRelationScoreFilterPage(args: args,));
+          break;
         default:
           return _errorRoute();
       }
@@ -127,9 +136,9 @@ class RouteGenerator{
     return MaterialPageRoute(builder: (_){
       return Scaffold(
         appBar: AppBar(
-          title: Text("Hata"),
+          title: const Text("Hata"),
         ),
-        body: Center(
+        body: const Center(
           child: Text("Hata"),
         ),
       );

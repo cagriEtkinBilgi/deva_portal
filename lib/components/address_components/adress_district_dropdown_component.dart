@@ -37,6 +37,7 @@ class _AddressDistrictDropdownComponentState extends State<AddressDistrictDropdo
             DropdownSerachWidget(
               items: widget.districtes!,
               dropdownLabel: "İlçe",
+              //defauld value bakılacak
               onChange: (val){
                 widget.result.districtId=val.id;
                 setState(() {
