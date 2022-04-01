@@ -57,6 +57,8 @@ dependencies:
   location: ^4.3.0
   connectivity: ^3.0.6
   data_table_2: ^2.2.1
+  intl: ^0.17.0
+
 
 
 dev_dependencies:
@@ -86,6 +88,8 @@ flutter_native_splash:
   branding_mode: center
   android: true
   ios: true
+
+
 
 # The following section is specific to Flutter.
 

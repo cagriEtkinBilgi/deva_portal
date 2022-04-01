@@ -15,7 +15,6 @@ import 'package:deva_portal/models/component_models/check_list_model.dart';
 import 'package:deva_portal/models/component_models/dropdown_search_model.dart';
 import 'package:deva_portal/models/component_models/note_add_model.dart';
 import 'package:deva_portal/tools/locator.dart';
-
 import '../error_model.dart';
 import 'base_view_model.dart';
 
@@ -32,10 +31,13 @@ class ActivityViewModel extends BaseViewModel{
   late ActivityCompleteModel completeFormModel;
 
   var repo=locator<ActivityRepository>();
-
+  int _typeID=0;
+  int _periot=0;
   Future<void> getActivitys(int typeID,int periot) async {
     try{
       PageID=1;
+      _typeID=typeID;
+      _periot=periot;
       var sesion=await SecurityViewModel().getCurrentSesion();
       BaseListModel<ActivityListModel> retVal;
       retVal=await repo.getActivitys(sesion.token!,PageID,typeID,periot);
@@ -393,10 +395,10 @@ class ActivityViewModel extends BaseViewModel{
   }
 
   Future<bool> deleteActivity(int id) async {
-  print(id);
     try{
       var sesion=await SecurityViewModel().getCurrentSesion();
       await repo.deleteActivity(sesion.token!,id);
+      await getActivitys(_typeID,_periot);
       return true;
     }catch(e){
       return false;

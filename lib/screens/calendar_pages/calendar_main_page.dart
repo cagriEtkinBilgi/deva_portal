@@ -104,7 +104,7 @@ class _CalendarMainPageState extends State<CalendarMainPage> with TickerProvider
         firstDay: DateTime((_date.year-1)),
         lastDay: DateTime(_date.year+1,),
         focusedDay: _foucusedDay,
-        locale: 'tr_TR',
+        locale: 'tr',
         calendarFormat: _format,
         onFormatChanged: (format) {
           setState(() {

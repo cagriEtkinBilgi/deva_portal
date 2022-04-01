@@ -21,8 +21,8 @@ class TaskViewModel extends BaseViewModel{
   late List<TaskNoteListModel> taskNotes;
   late List<TaskAttachmentModel> images;
   late List<TaskAttachmentModel> files;
-  late TaskDetailModel task;
-  late TaskStatusFormModel taskStatusFormModel;
+  var task=TaskDetailModel();
+  var taskStatusFormModel=TaskStatusFormModel();
 
   var repo=locator<TaskRepository>();
 
@@ -276,12 +276,12 @@ class TaskViewModel extends BaseViewModel{
 
   }
 
-  Future<TaskDetailModel> deleteTask(int id) async{
+  Future<void> deleteTask(int id) async{
     try{
       var sesion=await SecurityViewModel().getCurrentSesion();
-      task= await repo.deleteTask(sesion.token!, id);
+      await repo.deleteTask(sesion.token!, id);
       await getTasks(-1);
-      return task;
+      //return task;
     }catch (e){
       if(e is ErrorModel){
         onError=e;

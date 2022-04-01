@@ -62,6 +62,7 @@ class _TextFieldDatePickerWidgetState extends State<TextFieldDatePickerWidget> {
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime(2025),
+      //locale: Locale("tr"),
     );
     if(picketDate!=null){
       setState(() {

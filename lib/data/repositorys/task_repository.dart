@@ -170,15 +170,16 @@ class TaskRepository{
     }
   }
 
-  Future<TaskDetailModel> deleteTask(String token,int id) async {
+  Future<void> deleteTask(String token,int id) async {
     try{
       //api test edilecek!!
       print(id);
-      TaskDetailModel response=
+      //TaskDetailModel response=
       await BaseApi.instance!.dioGet<TaskDetailModel>("/Task/Delete/$id",TaskDetailModel(),token: token);
-      return response;
+      //return response;
     }catch(e){
       print(e.toString());
+      print("---------------");
       throw e;
     }
   }
