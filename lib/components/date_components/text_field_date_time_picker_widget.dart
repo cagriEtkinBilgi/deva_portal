@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:deva_portal/tools/date_parse.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class TextFieldDateTimePickerWidget extends StatefulWidget {
   Function? onChangedDate;
@@ -105,35 +106,52 @@ class _TextFieldDateTimePickerWidgetState extends State<TextFieldDateTimePickerW
   }
 
   buldDatePicker(context) async {
-    var picketDate=await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
-      //locale: Locale("tr"),
+    var currentDate=widget.initDateTime;
+    DatePicker.showDatePicker(context,
+        showTitleActions: true,
+        //minTime: DateTime(2018, 1, 1),
+        //maxTime: DateTime(2025, 1, 1),
+        onChanged: (date) {
+
+        }, onConfirm: (date) {
+          changeDate(date);
+        },
+        currentTime: currentDate,
+        locale: LocaleType.tr
     );
-    if(picketDate!=null){
+
+    return currentDate;
+  }
+
+  changeDate(DateTime date){
+    if(date!=null){
       setState(() {
-        selectedDate=formatDate(picketDate, [dd, '.', mm, '.', yyyy]);
+        selectedDate=formatDate(date, [dd, '.', mm, '.', yyyy]);
         textControllerDate.text=selectedDate??"";
         widget.onChangedDate!(selectedDate,selectedMinute);
       });
     }
-    return picketDate;
   }
 
   buldTimePicker(BuildContext context) async {
-    var picketTime=await showTimePicker(
-      context: context,
-      initialTime:TimeOfDay.now(),
+    DatePicker.showTimePicker(context,
+      onConfirm: (dateTime){
+      var time=TimeOfDay(hour: dateTime.hour, minute: dateTime.minute);
+      changeTime(time);
+      },
+      locale: LocaleType.tr
     );
-    if(picketTime!=null){
+
+
+  }
+
+  changeTime(TimeOfDay time){
+    if(time!=null){
       setState(() {
-        selectedMinute=picketTime.format(context);
+        selectedMinute=time.format(context);
         textControllerTime.text=selectedMinute??"";
         widget.onChangedDate!(selectedDate,selectedMinute);
       });
     }
-
   }
 }

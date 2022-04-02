@@ -1,6 +1,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:deva_portal/tools/date_parse.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
 class TextFieldDatePickerWidget extends StatefulWidget {
   Function? onChangedDate;
@@ -57,21 +58,34 @@ class _TextFieldDatePickerWidgetState extends State<TextFieldDatePickerWidget> {
     );
   }
   buldDatePicker(context) async {
-    var picketDate=await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime(2025),
-      //locale: Locale("tr"),
+    var currentDate=DateTime.now();
+    DatePicker.showDatePicker(context,
+        showTitleActions: true,
+        //minTime: DateTime(2018, 1, 1),
+        //maxTime: DateTime(2025, 1, 1),
+        onChanged: (date) {
+          chageDate(date);
+        }, onConfirm: (date) {
+          chageDate(date);
+        },
+        currentTime: currentDate,
+        locale: LocaleType.tr
     );
-    if(picketDate!=null){
+    //DatePicker.showDatePicker(context)
+
+
+    return currentDate;
+  }
+
+  chageDate(DateTime date){
+    if(date!=null){
       setState(() {
-        selectedDate=formatDate(picketDate, [dd, '.', mm, '.', yyyy]);
+        selectedDate=formatDate(date, [dd, '.', mm, '.', yyyy]);
         textControllerDate.text=selectedDate??"";
         widget.onChangedDate!(selectedDate);
       });
     }
-    return picketDate;
   }
+
 }
 
