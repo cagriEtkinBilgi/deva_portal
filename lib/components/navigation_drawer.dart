@@ -66,7 +66,7 @@ class NavigationDrawer extends StatelessWidget {
                     Container(
                       height: tileHeigt,
                       child: ListTile(
-                        title: Text("Aksiyonlar",style:textStyle,),
+                        title: Text("Görevler",style:textStyle,),
                         onTap: (){
                           Navigator.of(context).pushReplacementNamed('/TasksPage');
                         },

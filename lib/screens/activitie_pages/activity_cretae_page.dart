@@ -5,11 +5,10 @@ import 'package:deva_portal/components/message_dialog.dart';
 import 'package:deva_portal/data/view_models/activity_create_view_model.dart';
 import 'package:deva_portal/enums/api_state.dart';
 import 'package:deva_portal/models/activity_models/activity_form_model.dart';
-
+import 'package:deva_portal/screens/activitie_pages/activiti_layouts/activity_create_widget.dart';
 import 'package:deva_portal/screens/base_class/base_view.dart';
 import 'package:flutter/material.dart';
 import 'package:im_stepper/stepper.dart';
-import 'activiti_layouts/activity_plan_create_widget.dart';
 import 'activity_stepper_layouts/category_select_list_layout.dart';
 import 'activity_stepper_layouts/participant_select_list_layout.dart';
 import 'activity_stepper_layouts/work_group_select_list_layout.dart';
@@ -154,7 +153,7 @@ class _ActivityCreatePageState extends State<ActivityCreatePage> {
     var widgets=[
       WorkGroupSelectListLayout(form: form,),
       CategorySelectListLayout(form: form,),
-      ActivityPlanCreateWidget(
+      ActivityCreateWidget(
         form: form,
         activityForm: _formKey,
       ),

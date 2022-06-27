@@ -1,4 +1,5 @@
 import 'package:deva_portal/components/build_progress_widget.dart';
+import 'package:deva_portal/components/check_list_components/expandable_select_list_widget.dart';
 import 'package:deva_portal/components/check_list_components/selected_list_widget.dart';
 import 'package:deva_portal/components/error_widget.dart';
 import 'package:deva_portal/data/view_models/activity_create_view_model.dart';
@@ -28,13 +29,12 @@ class CategorySelectListLayout extends StatelessWidget {
             return CustomErrorWidget(model.onError);
           } else {
 
-            return SelectedListWidget(
-              title: "Kategori Seç",
-              multiple: false,
+            return ExpandableSelectListWidget(
+              title: "Kategori Seçiniz",
               items: model.categoriSelectList??[],
-              onChangeStatus: (List<SelectListWidgetModel> val){
-                form.activtyCategoryID=val.first.id;
-                form.activityTypeID=val.first.id;
+              onChangeStatus: (int id){
+                form.activtyCategoryID=id;
+                form.activityTypeID=id;
                 ///print(val.toString());//değerler alındı obje oladar
               },
             );

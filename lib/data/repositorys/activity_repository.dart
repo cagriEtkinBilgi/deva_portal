@@ -10,6 +10,7 @@ import 'package:deva_portal/models/activity_note_model/activity_note_list_model.
 import 'package:deva_portal/models/base_models/base_list_model.dart';
 import 'package:deva_portal/models/component_models/attachment_dialog_model.dart';
 import 'package:deva_portal/models/component_models/dropdown_search_model.dart';
+import 'package:deva_portal/models/component_models/expandable_select_list_model.dart';
 import 'package:deva_portal/models/component_models/note_add_model.dart';
 import 'package:deva_portal/models/component_models/select_list_widget_model.dart';
 import 'package:dio/dio.dart';
@@ -65,12 +66,13 @@ class ActivityRepository {
       throw e;
     }
   }
-  Future<BaseListModel<SelectListWidgetModel>> getActivityCategory(String token) async {
+  Future<BaseListModel<ExpandableSelectListModel>> getActivityCategory(String token) async {
     try {
-      BaseListModel<SelectListWidgetModel> response =
-      await BaseApi.instance!.dioGet<SelectListWidgetModel>(
-          "/Activity/GetCategoryByCreateForm", SelectListWidgetModel(),
+      BaseListModel<ExpandableSelectListModel> response =
+      await BaseApi.instance!.dioGet<ExpandableSelectListModel>(
+          "/Activity/GetCategoryExpandSelect", ExpandableSelectListModel(),
           token: token);
+      print(response);
       return response;
     } catch (e) {
       throw e;
@@ -279,7 +281,6 @@ class ActivityRepository {
           formData,
           token: token
       );
-      print(response);
       return response;
     } catch (e) {
       print(e.toString());

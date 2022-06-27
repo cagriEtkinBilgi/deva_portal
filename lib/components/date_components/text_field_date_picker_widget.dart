@@ -61,7 +61,7 @@ class _TextFieldDatePickerWidgetState extends State<TextFieldDatePickerWidget> {
     var currentDate=DateTime.now();
     DatePicker.showDatePicker(context,
         showTitleActions: true,
-        //minTime: DateTime(2018, 1, 1),
+        minTime: DateTime(1900, 1, 1),
         //maxTime: DateTime(2025, 1, 1),
         onChanged: (date) {
           chageDate(date);
