@@ -161,7 +161,6 @@ class _AddNewContactState extends State<AddNewContact> {
                         var value= await model.addContact(form);
                         if(value!=null){
                           _smsToken=value.smsToken!;
-                          print(_smsToken);
                           _recortID=value.id!;
                           onStepContinue();
                         }
@@ -183,7 +182,6 @@ class _AddNewContactState extends State<AddNewContact> {
                       }
 
                     }else{
-
                       var imageModels=ContactAttacmentPostModel(
                         Images: images,
                         id: _recortID,
@@ -206,8 +204,6 @@ class _AddNewContactState extends State<AddNewContact> {
                     }
 
                   }
-                  //onStepContinue();
-                  //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("En Az Bir Katılımcı Seçniz")));
 
                 },
                 child: const Text("Devam"),

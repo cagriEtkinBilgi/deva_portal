@@ -83,6 +83,7 @@ class ContactViewModel extends BaseViewModel{
       if(model.Images==null){
         return true;
       }
+      print(model.id);
       //deavm edilecek!!
       setState(ApiStateEnum.LodingState);
       var sesion=await SecurityViewModel().getCurrentSesion();

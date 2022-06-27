@@ -35,7 +35,7 @@ class TasksPage extends StatelessWidget {
         },
         builder:(context,model,widget)=> Scaffold(
           appBar: AppBar(
-            title: const Text("Aksiyonlar"),
+            title: const Text("Görevler"),
             elevation: AppTools.getAppBarElevation(),
             flexibleSpace: FlexibleSpaceBackground(),
             actions: [

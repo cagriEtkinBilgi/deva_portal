@@ -166,14 +166,29 @@ class HomePage extends StatelessWidget {
           ),
 
           SimpleCardWidget(
-            title: "Faaliyet Ekle",
+            title: "Faaliyet Bildir",
             decorationColor: Theme.of(context).primaryColor,
             textColor: Colors.white,
-            icon: Icons.add,
-            subTitle: "Yeni Faaliyet Oluştur",
+            icon: Icons.check,
+            subTitle: "Tamamlanmış Faaliyet Gir",
             count: 0,
             onClick: () {
               Navigator.pushNamed<dynamic>(context,'/CreateActivity');
+            },
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+
+          SimpleCardWidget(
+            title: "Faaliyet Planla",
+            decorationColor: Theme.of(context).primaryColor,
+            textColor: Colors.white,
+            icon: Icons.add,
+            subTitle: "Gelecekte Faaliyet Oluştur",
+            count: 0,
+            onClick: () {
+              Navigator.pushNamed<dynamic>(context,'/ActivityPlanCreate');
             },
           ),
           const SizedBox(

@@ -1,6 +1,7 @@
 import 'package:deva_portal/components/address_components/adress_district_dropdown_component.dart';
 import 'package:deva_portal/components/date_components/text_field_date_picker_widget.dart';
 import 'package:deva_portal/components/dropdown_serach_widget.dart';
+import 'package:deva_portal/components/form_checkbox_list_tile_Widget.dart';
 import 'package:deva_portal/components/radiobutons/gender_radio_button.dart';
 import 'package:deva_portal/components/radiobutons/identify_radio_button.dart';
 import 'package:deva_portal/components/radiobutons/member_radio_buttons.dart';
@@ -8,6 +9,7 @@ import 'package:deva_portal/models/component_models/dropdown_search_model.dart';
 import 'package:deva_portal/models/public_relation_models/new_contact_form_model.dart';
 import 'package:deva_portal/tools/apptool.dart';
 import 'package:deva_portal/tools/validations.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -44,8 +46,29 @@ class NewContactForm extends StatelessWidget {
                     onClick: (val){
                       form!.userStatus=val["id"]??1;
                       form!.identityNumber=val["identify"]??"";
-                      print(val);
                     },
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: FormCheckboxListTile(
+                          title: "Müşahit Olabilir",
+                          initVal: false,
+                          onChangedSelection:(retVal){
+                            form!.canWitness=retVal??false;
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: FormCheckboxListTile(
+                          title: "Arabası Var",
+                          initVal: false,
+                          onChangedSelection:(retVal){
+                            form!.hasCar=retVal??false;
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                   TextFormField(
                     validator: (val)=>FormValidations.NonEmty(val??""),

@@ -16,6 +16,8 @@ class NewContactFormModel extends BaseModel{
   String? birthDate;
   int? gender;
   int? educationState;
+  bool hasCar;
+  bool canWitness;
   int? jobID;
 
 
@@ -36,6 +38,8 @@ class NewContactFormModel extends BaseModel{
     this.gender,
     this.educationState,
     this.jobID,
+    this.hasCar=false,
+    this.canWitness=false
 });
 
   @override
@@ -60,6 +64,8 @@ class NewContactFormModel extends BaseModel{
     birthDate: map["birthDate"],
     educationState: map["educationState"],
     jobID: map["jobID"],
+    canWitness: map["canWitness"],
+    hasCar: map["hasCar"]
   );
 
 
@@ -81,6 +87,8 @@ class NewContactFormModel extends BaseModel{
     "birthDate":birthDate,
     "educationState":educationState,
     "jobID":jobID,
+    "hasCar":hasCar,
+    "canWitness":canWitness
   };
 
 }

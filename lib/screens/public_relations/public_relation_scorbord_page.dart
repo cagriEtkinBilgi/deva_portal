@@ -59,7 +59,7 @@ class PublicRelationScorbordPage extends StatelessWidget {
   Widget buildDetailCard(BuildContext context, PublicRelationViewModel model) {
     return Column(
         children: [
-          SizedBox(child: _buildOwnerCard(model),height: 133,),
+          //SizedBox(child: _buildOwnerCard(model),height: 133,),
           Expanded(child: _scoreCard(context,model.scoreBord.scores??[])),
         ],
     );

@@ -4,7 +4,6 @@ import 'package:deva_portal/models/base_models/base_model.dart';
 import 'package:deva_portal/tools/apptool.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-
 import '../error_model.dart';
 
 
@@ -98,6 +97,7 @@ class BaseApi{
             baseListModel.outarized=reponse.data["authorizationStatus"];
             List<T> datas=[];
             for(var i in bodys){
+              print("object list");
               var md=model.fromMap(i);
               datas.add(md);
             }

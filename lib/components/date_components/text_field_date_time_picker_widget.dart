@@ -109,7 +109,7 @@ class _TextFieldDateTimePickerWidgetState extends State<TextFieldDateTimePickerW
     var currentDate=widget.initDateTime;
     DatePicker.showDatePicker(context,
         showTitleActions: true,
-        //minTime: DateTime(2018, 1, 1),
+        //minTime: DateTime(1950, 1, 1),
         //maxTime: DateTime(2025, 1, 1),
         onChanged: (date) {
 

@@ -5,6 +5,7 @@ import 'package:deva_portal/models/activity_models/activity_form_model.dart';
 import 'package:deva_portal/models/base_models/base_list_model.dart';
 import 'package:deva_portal/models/component_models/check_list_model.dart';
 import 'package:deva_portal/models/component_models/dropdown_search_model.dart';
+import 'package:deva_portal/models/component_models/expandable_select_list_model.dart';
 import 'package:deva_portal/models/component_models/select_list_widget_model.dart';
 import 'package:deva_portal/tools/locator.dart';
 import '../error_model.dart';
@@ -15,7 +16,7 @@ var repo=locator<ActivityRepository>();
 class ActivityCreateViewModel extends BaseViewModel{
 
   List<SelectListWidgetModel>? workGroupSelectList=[];
-  List<SelectListWidgetModel>? categoriSelectList=[];
+  List<ExpandableSelectListModel>? categoriSelectList=[];
   List<SelectListWidgetModel>? participantSelectList=[];
 
   Future<List<SelectListWidgetModel>> getActivityWorkGroup() async {
@@ -50,11 +51,10 @@ class ActivityCreateViewModel extends BaseViewModel{
 
   }
 
-  Future<List<SelectListWidgetModel>> getActivityActivityCategori() async {
+  Future<List<ExpandableSelectListModel>> getActivityActivityCategori() async {
     try{
-
       var sesion=await SecurityViewModel().getCurrentSesion();
-      BaseListModel<SelectListWidgetModel> retVal= await repo.getActivityCategory(sesion.token!);
+      BaseListModel<ExpandableSelectListModel> retVal= await repo.getActivityCategory(sesion.token!);
       categoriSelectList=retVal.datas;
       canEdit=(retVal.outarized==2);
 
