@@ -54,7 +54,7 @@ class NumberResetPage extends StatelessWidget {
                   ),
                   Container(
                     alignment: Alignment.centerRight,
-                    child: FlatButton(
+                    child: ElevatedButton(
                       onPressed: (){ debugPrint("Hop");},//Şifre Sıfırlama İşlemine gönderilecek
                       child: Text("Kod Ulaşmadı",style: textStyle,),
                     ),
@@ -62,18 +62,14 @@ class NumberResetPage extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 1.0),
                     width: double.infinity,
-                    child: RaisedButton(
-                      elevation: 5.0,
+                    child: ElevatedButton(
                       onPressed: (){
                         if(numberConfirmeKey.currentState!.validate()){
                           numberConfirmeKey.currentState!.save();
                           debugPrint(ConfirmCode.toString()); //Apiye Gönderilecek
                         }
                       },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      color: Colors.white,
+
                       child: Text(
                         "Doğrula",
                         style: raiseButtonTextStyle,

@@ -105,7 +105,7 @@ class _AttachmentAddDialogState<T extends BaseViewModel> extends State<Attachmen
           ),
           Expanded(
             flex: 1,
-            child: FlatButton(
+            child: ElevatedButton(
               onPressed: () async {
                 if(_formKey.currentState!.validate()){
                   if(model.file==null&&model.filePath==null){

@@ -248,18 +248,13 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 25.0),
                     width: double.infinity,
-                    child: RaisedButton(
-                      elevation: 5.0,
+                    child: ElevatedButton(
                       onPressed: (){
                         if(registerFormKey.currentState!.validate()){
                           registerFormKey.currentState!.save();
                           debugPrint(registerModel.toJson()); //Apiye Gönderilecek
                         }
                       },
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      color: Colors.white,
                       child: Text(
                         "Kayıt",
                         style: raiseButtonTextStyle,

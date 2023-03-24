@@ -141,7 +141,7 @@ class UpdateUserProfileForm extends StatelessWidget {
                     ),
                     Container(
                       width: double.infinity,
-                      child: RaisedButton(
+                      child: ElevatedButton(
                         onPressed: () async {
                           try{
 
@@ -159,7 +159,6 @@ class UpdateUserProfileForm extends StatelessWidget {
                           model.profile.file=null;
                           model.profile.url=null;
                         },
-                        color: Colors.blue,
                         child: const Text("Kaydet"),
                       ),
                     )

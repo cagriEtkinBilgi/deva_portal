@@ -87,7 +87,7 @@ class AddNewRelationPage extends StatelessWidget {
               ),
               Container(
                 width: double.infinity,
-                child: RaisedButton(
+                child: ElevatedButton(
                   onPressed: () async {
                     try{
                       if(!checkNumberForm.currentState!.validate()) {
@@ -99,7 +99,7 @@ class AddNewRelationPage extends StatelessWidget {
                       CustomDialog.instance!.exceptionMessage(context,model: e);
                     }
                   },
-                  color: Colors.blue,
+
                   child: const Text("Sorgula",style: TextStyle(color: Colors.white),),
                 ),
               )
@@ -273,7 +273,7 @@ class AddNewRelationPage extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () async {
                   if(!contackForm.currentState!.validate()) {
                     return;
@@ -290,7 +290,6 @@ class AddNewRelationPage extends StatelessWidget {
                     CustomDialog.instance!.exceptionMessage(context,model: e);
                   }
                 },
-                color: Colors.blue,
                 child: const Text("Kaydet"),
               ),
             )
