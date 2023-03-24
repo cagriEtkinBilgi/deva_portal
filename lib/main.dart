@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'data/uow_providers.dart';
 
 void main() {
-  setupLocator();
+  setupLocator();//push deneme
   runApp(const MyApp());
 }
 
